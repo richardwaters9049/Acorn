@@ -33,33 +33,35 @@ export default function Home() {
   };
 
   return (
-    <section className="max-w-xl mx-auto bg-white p-6 rounded-2xl shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Submit a New Claim</h2>
+    <main className="main-container w-full h-screen flex flex-col items-center justify-center">
+      <section className="max-w-xl mx-auto p-6 rounded-2xl shadow-md flex flex-col justify-center items-center gap-8">
+        <h2 className="text-2xl font-semibold text-center">Submit a New Claim</h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <Input
-          placeholder="Your Full Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <Textarea
-          placeholder="Brief description of your claim"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-        />
-        <Input
-          type="file"
-          onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-          required
-        />
-        <Button type="submit" className="w-full">Submit Claim</Button>
-      </form>
+        <form onSubmit={handleSubmit} className="space-y-8">
+          <Input
+            placeholder="Your Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <Textarea
+            placeholder="Brief description of your claim"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          />
+          <Input
+            type="file"
+            onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+            required
+          />
+          <Button type="submit" className="w-full hover:cursor-pointer">Submit Claim</Button>
+        </form>
 
-      {message && (
-        <p className="mt-4 text-green-600 font-medium text-center">{message}</p>
-      )}
-    </section>
+        {message && (
+          <p className="mt-4 text-green-600 font-medium text-center">{message}</p>
+        )}
+      </section>
+    </main>
   );
 }
